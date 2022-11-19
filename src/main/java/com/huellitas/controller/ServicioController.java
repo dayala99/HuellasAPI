@@ -19,7 +19,7 @@ public class ServicioController {
     @Autowired
     private ServicioService servicioService;
 
-    @GetMapping("servicios")
+    @GetMapping("/servicios")
     public ResponseEntity<List<ServicioDTO>> listarServicio(){
         return new ResponseEntity<>(servicioService.listarServicios(), HttpStatus.OK);
     }
@@ -29,17 +29,17 @@ public class ServicioController {
         return new ResponseEntity<>(servicioService.obtenerServicioPorID(servicioId), HttpStatus.OK);
     }
 
-    @PostMapping("servicios")
+    @PostMapping("/servicios")
     public ResponseEntity<ServicioDTO> registrarServicio(@RequestBody ServicioCreateDTO servicioCreateDTO){
         return new ResponseEntity<>(servicioService.registrarServicio(servicioCreateDTO), HttpStatus.OK);
     }
 
-    @PutMapping("servicios")
+    @PutMapping("/servicios")
     public ResponseEntity<ServicioDTO> actualizarServicio(@RequestBody ServicioUpdateDTO servicioUpdateDTO){
         return new ResponseEntity<>(servicioService.actualizarServicio(servicioUpdateDTO), HttpStatus.OK);
     }
 
-    @DeleteMapping("servicios/{servicioId}")
+    @DeleteMapping("/servicios/{servicioId}")
     public  ResponseEntity<String> eliminarServicio(@PathVariable("servicioId") long servicioId){
         return new ResponseEntity<>(servicioService.eliminarServicio(servicioId), HttpStatus.OK);
     }

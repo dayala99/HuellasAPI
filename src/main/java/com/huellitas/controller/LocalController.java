@@ -19,7 +19,7 @@ public class LocalController {
     @Autowired
     private LocalService localService;
 
-    @GetMapping("locals")
+    @GetMapping("/locals")
     public ResponseEntity<List<LocalDTO>> listarLocal(){
         return new ResponseEntity<>(localService.listarLocals(), HttpStatus.OK);
     }
@@ -29,17 +29,17 @@ public class LocalController {
         return new ResponseEntity<>(localService.obtenerLocalPorID(localId), HttpStatus.OK);
     }
 
-    @PostMapping("locals")
+    @PostMapping("/locals")
     public ResponseEntity<LocalDTO> registrarLocal(@RequestBody LocalCreateDTO localCreateDTO){
         return new ResponseEntity<>(localService.registrarLocal(localCreateDTO), HttpStatus.OK);
     }
 
-    @PutMapping("locals")
+    @PutMapping("/locals")
     public ResponseEntity<LocalDTO> actualizarLocal(@RequestBody LocalUpdateDTO localUpdateDTO){
         return new ResponseEntity<>(localService.actualizarLocal(localUpdateDTO), HttpStatus.OK);
     }
 
-    @DeleteMapping("locals/{localId}")
+    @DeleteMapping("/locals/{localId}")
     public  ResponseEntity<String> eliminarLocal(@PathVariable("localId") long localId){
         return new ResponseEntity<>(localService.eliminarLocal(localId), HttpStatus.OK);
     }

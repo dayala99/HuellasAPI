@@ -19,7 +19,7 @@ public class MascotaController {
     @Autowired
     private MascotaService mascotaService;
 
-    @GetMapping("mascotas")
+    @GetMapping("/mascotas")
     public ResponseEntity<List<MascotaDTO>> listarMascota(){
         return new ResponseEntity<>(mascotaService.listarMascotas(), HttpStatus.OK);
     }
@@ -29,17 +29,17 @@ public class MascotaController {
         return new ResponseEntity<>(mascotaService.obtenerMascotaPorID(mascotaId), HttpStatus.OK);
     }
 
-    @PostMapping("mascotas")
+    @PostMapping("/mascotas")
     public ResponseEntity<MascotaDTO> registrarMascota(@RequestBody MascotaCreateDTO mascotaCreateDTO){
         return new ResponseEntity<>(mascotaService.registrarMascota(mascotaCreateDTO), HttpStatus.OK);
     }
 
-    @PutMapping("mascotas")
+    @PutMapping("/mascotas")
     public ResponseEntity<MascotaDTO> actualizarMascota(@RequestBody MascotaUpdateDTO mascotaUpdateDTO){
         return new ResponseEntity<>(mascotaService.actualizarMascota(mascotaUpdateDTO), HttpStatus.OK);
     }
 
-    @DeleteMapping("mascotas/{mascotaId}")
+    @DeleteMapping("/mascotas/{mascotaId}")
     public  ResponseEntity<String> eliminarMascota(@PathVariable("mascotaId") long mascotaId){
         return new ResponseEntity<>(mascotaService.eliminarMascota(mascotaId), HttpStatus.OK);
     }
