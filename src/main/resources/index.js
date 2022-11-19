@@ -13,6 +13,6 @@ app.use("/api", billsRoute);
 
 // routes
 app.get("/", (req, res) => {
-  window.location.replace("clientes");
+  window.open("api/clientes");
 });
 
