@@ -11,17 +11,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
 public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
-
-    @GetMapping("/")
-    public String index(){
-    return "http://localhost:8080/swagger-ui/index.html#";
-    }
 
     @GetMapping("clientes")
     public ResponseEntity<List<ClienteDTO>> listarCliente(){
